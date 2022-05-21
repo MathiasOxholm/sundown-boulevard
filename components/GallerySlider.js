@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation, Lazy } from "swiper";
+import { Autoplay, Pagination, Navigation, Lazy, EffectCreative } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/lazy";
+import "swiper/css/effect-creative";
 
 const swipes = [
   { id: 1, heading: "Sandwiches and stuff", img: "/images/sandwich.jpg" },
@@ -14,7 +15,7 @@ const swipes = [
 
 const GallerySlider = () => {
   return (
-    <div className="flex w-full relative aspect-video bg-white overflow-hidden rounded-2xl">
+    <div className="flex w-full relative aspect-video bg-white overflow-hidden rounded-2xl transition-all">
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
@@ -24,7 +25,17 @@ const GallerySlider = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Autoplay, Pagination, Navigation, Lazy]}
+        effect={"creative"}
+        creativeEffect={{
+          prev: {
+            shadow: true,
+            translate: ["-20%", 0, -1],
+          },
+          next: {
+            translate: ["100%", 0, 0],
+          },
+        }}
+        modules={[Autoplay, Pagination, Navigation, Lazy, EffectCreative]}
       >
         {swipes.map((swipe) => {
           return (

@@ -8,7 +8,6 @@ button {
 }
 
 body {
-  --swiper-theme-color: theme("colors.white");
   background-color: theme("colors.light");
   padding-bottom: theme("spacing.8");
   min-height: 100vh;
@@ -26,4 +25,20 @@ button:disabled {
 
 .swiper {
   width: 100%;
+  --swiper-pagination-bullet-width: 12px;
+  --swiper-pagination-bullet-height: 12px;
+  --swiper-pagination-bullet-horizontal-gap: 0.5rem;
+  --swiper-theme-color: theme("colors.white");
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background: theme("colors.light");
+}
+
+::-webkit-scrollbar-thumb {
+  background: theme("colors.medium");
 }

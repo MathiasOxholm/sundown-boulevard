@@ -23,7 +23,7 @@ const oldOrders = [
 
 const FindOrder = () => {
   const router = useRouter();
-  const { setDrinksCart, setFoodCart, setEmail } = useContext(AppContext);
+  const { setDrinksCart, setFoodCart, setEmail, handlePreFilled } = useContext(AppContext);
   const [inputValue, setInputValue] = useState("");
 
   // Handle input changes
@@ -41,15 +41,16 @@ const FindOrder = () => {
         setEmail(order.email);
         setFoodCart(order.food);
         setDrinksCart(order.drinks);
+        handlePreFilled();
         router.push("/dish");
       }
     });
   };
 
   return (
-    <div className="flex flex-col justify-between w-full relative aspect-video bg-white overflow-hidden rounded-2xl py-12 px-10">
+    <div className="flex flex-col justify-between w-full relative aspect-video bg-white overflow-hidden rounded-2xl py-12 px-10 border border-lightBorder">
       <div>
-        <h2 className="text-2xl font-semibold mb-2">Find your order</h2>
+        <h2 className="text-3xl font-semibold mb-2">Find your order</h2>
         <p>Enter your email address and continue your old order</p>
       </div>
 

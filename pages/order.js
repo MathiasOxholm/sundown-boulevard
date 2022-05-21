@@ -3,16 +3,29 @@ import Cart from "../components/Cart";
 import Layout from "../components/Layout";
 import OrderForm from "../components/OrderForm";
 import { AppContext } from "../context";
+import { useRouter } from "next/router";
 
 const Order = () => {
-  const { date, time, email, peopleAmount } = useContext(AppContext);
+  const router = useRouter();
+  const { date, time, email, peopleAmount, cartFood, cartDrinks, preFilled } =
+    useContext(AppContext);
   const [disabled, setDisabled] = useState(true);
+  const [btnText, setBtnText] = useState("Complete order");
 
   useEffect(() => {
     date && time && email && peopleAmount
       ? setDisabled(false)
       : setDisabled(true);
   }, [date, time, email, peopleAmount]);
+
+    useEffect(() => {
+      cartDrinks.length === 0 && router.push("/drinks");
+      cartFood.length === 0 && router.push("/dish");
+    }, [cartDrinks, cartFood, router]);
+
+    useEffect(() => {
+      preFilled && setBtnText("Update order");
+    }, [preFilled]);
 
   return (
     <Layout title="Order" heading="Order details" back={"/drinks"}>
@@ -21,7 +34,7 @@ const Order = () => {
           <OrderForm />
         </div>
         <div className="flex col-span-4">
-          <Cart link="/receipt" btnText="Complete order" disabled={disabled} />
+          <Cart link="/receipt" btnText={btnText} disabled={disabled} />
         </div>
       </div>
     </Layout>

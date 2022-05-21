@@ -1,13 +1,15 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
 import Link from "next/link";
+import CartItem from "./CartItem";
 
 const Cart = ({ link, btnText, sticky, disabled, home }) => {
-  const { handleRemoveFromCart, cartFood, cartDrinks } = useContext(AppContext);
+  const { cartFood, cartDrinks } = useContext(AppContext);
 
   return (
     <div
-      className={`flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit ${
+      id="Cart"
+      className={`flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit border border-lightBorder ${
         sticky ? "sticky top-8" : "h-full"
       } `}
     >
@@ -24,15 +26,7 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
             <h3 className="text-lg font-semibold mb-1">Meals</h3>
             <ul className="mb-4 flex flex-col gap-2">
               {cartFood.map((item) => {
-                return (
-                  <li
-                    key={item}
-                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-primary hover:border-primary hover:text-white transition"
-                    onClick={() => handleRemoveFromCart(item, "food")}
-                  >
-                    {item}
-                  </li>
-                );
+                return <CartItem key={item} item={item} category={"food"} />;
               })}
             </ul>
           </div>
@@ -43,15 +37,7 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
             <h3 className="text-lg font-semibold mb-1">Drinks</h3>
             <ul className="mb-4 flex flex-col gap-2">
               {cartDrinks.map((item) => {
-                return (
-                  <li
-                    key={item}
-                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-primary hover:border-primary hover:text-white transition"
-                    onClick={() => handleRemoveFromCart(item, "drinks")}
-                  >
-                    {item}
-                  </li>
-                );
+                return <CartItem key={item} item={item} category={"drinks"} />;
               })}
             </ul>
           </div>

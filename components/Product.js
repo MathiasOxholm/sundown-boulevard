@@ -30,7 +30,11 @@ const Product = () => {
   }, [cartFood, product, loading]);
 
   if (loading) {
-    return <p>Loading</p>;
+    return (
+      <p className="h-full w-full flex flex-col justify-center items-center text-xl">
+        Loading
+      </p>
+    );
   }
 
   return (

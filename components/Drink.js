@@ -13,8 +13,10 @@ const Drink = ({ title, img }) => {
 
   return (
     <div
-      className={`flex flex-col aspect-square bg-white border-2  justify-center items-center rounded-xl p-8 cursor-pointer outline-primary hover:shadow-lg hover:-translate-y-1 hover:border-primary transition-all duration-500 ${
-        isSelected ? "border-2 border-primary" : "border-white"
+      className={`flex flex-col aspect-square bg-white border  justify-center items-center rounded-xl p-8 cursor-pointer outline-primary hover:shadow-lg hover:-translate-y-1 hover:border-secondary transition-all duration-500 ${
+        isSelected
+          ? "border bg-lightBorder border-lightBorder"
+          : "border-lightBorder"
       }`}
       onClick={() => {
         handleAddToCart(title, "drinks");

@@ -10,6 +10,7 @@ function MyApp({ Component, pageProps }) {
   const [time, setTime] = useState();
   const [email, setEmail] = useState();
   const [peopleAmount, setPeopleAmount] = useState(1);
+  const [preFilled, setPreFilled] = useState(false);
 
   // Global API endpoints
   const foodAPI = "https://www.themealdb.com/api/json/v1/1/random.php";
@@ -54,6 +55,11 @@ function MyApp({ Component, pageProps }) {
   };
 
   // Set date function
+  const handlePreFilled = (e) => {
+    setPreFilled(!preFilled);
+  };
+
+  // Set date function
   const handleDate = (e) => {
     setDate(e.target.value);
   };
@@ -93,6 +99,8 @@ function MyApp({ Component, pageProps }) {
         setEmail,
         setFoodCart,
         setDrinksCart,
+        handlePreFilled,
+        preFilled,
       }}
     >
       <Header />

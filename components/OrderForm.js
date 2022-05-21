@@ -19,7 +19,7 @@ const OrderForm = () => {
   const minDate = year + "-" + "0" + month + "-" + day;
 
   return (
-    <div className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit sticky top-8">
+    <div className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit sticky top-8 border border-lightBorder">
       <div className="flex flex-col gap-6">
         <div>
           <label
