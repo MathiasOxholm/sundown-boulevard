@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import OrderForm from "../components/OrderForm";
 import { AppContext } from "../context";
 
-const order = () => {
+const Order = () => {
   const { date, time, email, peopleAmount } = useContext(AppContext);
   const [disabled, setDisabled] = useState(true);
 
@@ -28,4 +28,4 @@ const order = () => {
   );
 };
 
-export default order;
+export default Order;

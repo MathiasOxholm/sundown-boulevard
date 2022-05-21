@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 import DrinkList from "../components/DrinkList";
 import { AppContext } from "../context";
 
-const drinks = () => {
+const Drinks = () => {
   const { cartDrinks } = useContext(AppContext);
   const [disabled, setDisabled] = useState(true);
 
@@ -31,4 +31,4 @@ const drinks = () => {
   );
 };
 
-export default drinks;
+export default Drinks;

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../context";
 import Link from "next/link";
 
-const Cart = ({ link, btnText, sticky, disabled }) => {
+const Cart = ({ link, btnText, sticky, disabled, home }) => {
   const { handleRemoveFromCart, cartFood, cartDrinks } = useContext(AppContext);
 
   return (
@@ -27,7 +27,7 @@ const Cart = ({ link, btnText, sticky, disabled }) => {
                 return (
                   <li
                     key={item}
-                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-medium transition"
+                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-primary hover:border-primary hover:text-white transition"
                     onClick={() => handleRemoveFromCart(item, "food")}
                   >
                     {item}
@@ -46,7 +46,7 @@ const Cart = ({ link, btnText, sticky, disabled }) => {
                 return (
                   <li
                     key={item}
-                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-medium transition"
+                    className="py-3 px-4 rounded-md border border-medium cursor-pointer hover:bg-primary hover:border-primary hover:text-white transition"
                     onClick={() => handleRemoveFromCart(item, "drinks")}
                   >
                     {item}

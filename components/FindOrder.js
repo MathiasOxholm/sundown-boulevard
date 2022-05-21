@@ -53,7 +53,7 @@ const FindOrder = () => {
         <p>Enter your email address and continue your old order</p>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="relative">
         <input
           type="email"
           id="email"
@@ -63,6 +63,9 @@ const FindOrder = () => {
           value={inputValue}
           onChange={handleEmailInput}
         />
+        <button className="text-white bg-secondary hover:bg-secondaryDark focus:outline-none font-bold rounded-full text-sm uppercase px-6 h-full text-center transition absolute right-0 top-0">
+          Search
+        </button>
       </form>
     </div>
   );

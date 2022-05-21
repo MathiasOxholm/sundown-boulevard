@@ -63,13 +63,13 @@ const Product = () => {
         </div>
         <div className="flex flex-row gap-4 justify-end">
           <button
-            className="text-white bg-secondary hover:bg-secondaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-8 py-4 text-center transition"
+            className="text-white bg-secondary hover:bg-secondaryDark focus:outline-none font-bold rounded-full text-sm uppercase px-8 py-4 text-center transition"
             onClick={getProduct}
           >
             Generate new
           </button>
           <button
-            className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-8 py-4 text-center transition"
+            className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-bold rounded-full text-sm uppercase px-8 py-4 text-center transition"
             onClick={() => handleAddToCart(product.strMeal, "food")}
           >
             {!isSelected ? "Add to cart" : "Remove from cart"}

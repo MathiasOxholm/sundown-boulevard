@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+import { Autoplay, Pagination, Navigation, Lazy } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/lazy";
 
 const swipes = [
   { id: 1, heading: "Sandwiches and stuff", img: "/images/sandwich.jpg" },
@@ -19,10 +20,11 @@ const GallerySlider = () => {
         slidesPerView={1}
         grabCursor={true}
         navigation={true}
+        lazy={true}
         pagination={{
           clickable: true,
         }}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation, Lazy]}
       >
         {swipes.map((swipe) => {
           return (

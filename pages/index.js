@@ -12,7 +12,7 @@ export default function Home() {
           <GallerySlider />
         </div>
         <div className="flex col-span-4">
-          <Cart link="/dish" btnText="Start your order" />
+          <Cart link="/dish" btnText="Start your order" home={true} />
         </div>
         <div className="flex col-span-6">
           <FindOrder />
