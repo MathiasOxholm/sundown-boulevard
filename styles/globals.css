@@ -1,16 +1,29 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+img,
+button {
+  user-select: none;
+}
+
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --swiper-theme-color: theme("colors.white");
+  background-color: theme("colors.light");
+  padding-bottom: theme("spacing.8");
+  min-height: 100vh;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+::selection {
+  background-color: theme("colors.primary");
+  color: theme("colors.white");
 }
 
-* {
-  box-sizing: border-box;
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.swiper {
+  width: 100%;
 }
