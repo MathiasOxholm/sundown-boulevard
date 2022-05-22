@@ -30,8 +30,6 @@ const Receipt = () => {
     return () => confetti.clear();
   }, []);
 
-
-
   return (
     <>
       <Layout title="Receipt" heading={headingText}>

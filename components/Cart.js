@@ -32,7 +32,7 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
             </ul>
           </div>
         )}
-              
+
         {cartDrinks.length > 0 && (
           <div>
             <h3 className="text-lg font-semibold mb-1">Drinks</h3>
@@ -44,14 +44,16 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
           </div>
         )}
       </div>
-      <Link href={link}>
-        <button
-          className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-5 py-4 text-center transition mt-8"
-          disabled={disabled}
-        >
-          {home && cartFood.length > 0 ? "Continue order" : btnText}
-        </button>
-      </Link>
+      {btnText && (
+        <Link href={link}>
+          <button
+            className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-5 py-4 text-center transition mt-8"
+            disabled={disabled}
+          >
+            {home && cartFood.length > 0 ? "Continue order" : btnText}
+          </button>
+        </Link>
+      )}
     </motion.div>
   );
 };

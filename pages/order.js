@@ -37,7 +37,7 @@ const Order = () => {
           <OrderForm />
         </div>
         <div className="flex col-span-full xl:col-span-4">
-          <Cart link="/receipt" btnText={btnText} disabled={disabled} />
+          <Cart link="/receipt" disabled={disabled} sticky={true} />
         </div>
       </div>
     </Layout>

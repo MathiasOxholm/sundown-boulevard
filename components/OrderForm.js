@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 const OrderForm = () => {
   const {
@@ -13,6 +14,7 @@ const OrderForm = () => {
     handleEmail,
     handlePeople,
   } = useContext(AppContext);
+  const router = useRouter();
   const today = new Date();
   const day = today.getDate();
   const month = today.getMonth() + 1;
@@ -21,20 +23,28 @@ const OrderForm = () => {
   const inputClasses =
     "border border-medium text-dark text-lg rounded-full w-full py-4 px-6 cursor-pointer hover:border-primary transition";
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push("/receipt");
+  };
+
   return (
     <motion.div
       className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit sticky top-8 border border-lightBorder"
       animate={{ y: 0, opacity: 1 }}
       initial={{ y: 20, opacity: 0 }}
     >
-      <div className="flex flex-col gap-6">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-6">
         <div>
           <label
             htmlFor="date"
-            className="text-xl mb-2 flex font-semibold cursor-pointer"
+            className="text-xl flex font-semibold cursor-pointer"
           >
             Choose date <span className="text-primary ml-1">*</span>
           </label>
+          <p className="text-sm mb-4">
+            The restaurant is closed during the weekend
+          </p>
           <input
             className={inputClasses}
             type="date"
@@ -48,10 +58,13 @@ const OrderForm = () => {
         <div>
           <label
             htmlFor="date"
-            className="text-xl mb-2 flex font-semibold cursor-pointer"
+            className="text-xl flex font-semibold cursor-pointer"
           >
             Choose time <span className="text-primary ml-1">*</span>
           </label>
+          <p className="text-sm mb-4">
+            The restaurant is open between 16 and 23
+          </p>
           <input
             className={inputClasses}
             type="time"
@@ -59,6 +72,8 @@ const OrderForm = () => {
             required
             value={time}
             onChange={handleTime}
+            min="16:00"
+            max="23:00"
           />
         </div>
         <div>
@@ -81,10 +96,11 @@ const OrderForm = () => {
         <div>
           <label
             htmlFor="amount"
-            className="text-xl mb-2 flex font-semibold cursor-pointer"
+            className="text-xl flex font-semibold cursor-pointer"
           >
             Amount of people <span className="text-primary ml-1">*</span>
           </label>
+          <p className="text-sm mb-4">Maximum 10 people</p>
           <input
             className={inputClasses}
             type="number"
@@ -96,7 +112,10 @@ const OrderForm = () => {
             onChange={handlePeople}
           />
         </div>
-      </div>
+        <button className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-5 py-6 text-center mt-4 transition">
+          Complete order
+        </button>
+      </form>
     </motion.div>
   );
 };
