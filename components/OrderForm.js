@@ -26,6 +26,8 @@ const OrderForm = () => {
   const minDate = year + "-" + "0" + month + "-" + day;
   const [dateValid, setDateValid] = useState(false);
   const [timeValid, setTimeValid] = useState(false);
+  const [peopleValid, setPeopleValid] = useState(false);
+  const [emailValid, setEmailValid] = useState(false);
 
   // Handle form submit
   const handleSubmit = (e) => {
@@ -57,19 +59,35 @@ const OrderForm = () => {
     let valueString = value.join("");
 
     // Open between 16.00 and 23.00
-    if (valueString > 1600 && valueString < 2300) {
+    if (valueString >= 1600 && valueString <= 2300) {
       setTimeValid(true);
     } else {
       setTimeValid(false);
     }
   }, [time]);
 
+  // Validate Email input
+  useEffect(() => {
+    email.includes("@") && email.includes(".")
+      ? setEmailValid(true)
+      : setEmailValid(false);
+  }, [email]);
+
+  // Validate people amount input
+  useEffect(() => {
+    peopleAmount > 0 && peopleAmount <= 10
+      ? setPeopleValid(true)
+      : setPeopleValid(false);
+  }, [peopleAmount]);
+
   // Check if inputs are filled and validated
   useEffect(() => {
-    if (email !== "" && dateValid && timeValid && peopleAmount > 0 <= 10) {
+    if (emailValid && dateValid && timeValid && peopleValid) {
       setFormValid(true);
+    } else {
+      setFormValid(false);
     }
-  }, [email, dateValid, timeValid, peopleAmount]);
+  }, [emailValid, dateValid, timeValid, peopleValid]);
 
   return (
     <motion.div
@@ -88,6 +106,7 @@ const OrderForm = () => {
           errorMessage="Can't be weekend"
           onChange={handleDate}
           error={!dateValid}
+          valid={date && dateValid}
         />
         <OrderFormInput
           type="time"
@@ -100,6 +119,7 @@ const OrderForm = () => {
           errorMessage="Must be between 16 and 23"
           error={!timeValid}
           onChange={handleTime}
+          valid={time && timeValid}
         />
         <OrderFormInput
           type="email"
@@ -108,11 +128,14 @@ const OrderForm = () => {
           label="Email"
           onChange={handleEmail}
           placeholder="your@email.com"
+          errorMessage="Enter valid email"
+          error={!emailValid}
+          valid={email && emailValid}
         />
         <OrderFormInput
           type="number"
           name="amount"
-          value={peopleAmount}
+          value={parseInt(peopleAmount)}
           label="Amount of people"
           desc="Maximum 10 people"
           min={1}
@@ -120,6 +143,8 @@ const OrderForm = () => {
           onChange={handlePeople}
           placeholder="Enter number of people"
           errorMessage="Maximum 10 people"
+          error={!peopleValid}
+          valid={peopleAmount && peopleValid}
         />
         <button
           className="text-white bg-primary hover:bg-primaryDark focus:outline-none font-semibold rounded-full text-sm uppercase px-5 py-6 text-center mt-4 transition disabled:opacity-50"

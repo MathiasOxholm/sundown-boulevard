@@ -36,6 +36,12 @@ button:disabled {
   --swiper-theme-color: theme("colors.white");
 }
 
+.swiper-pagination-bullet,
+.swiper-button-prev,
+.swiper-button-next {
+  transition: 0.3s ease-out;
+}
+
 ::-webkit-scrollbar {
   width: 0.5rem;
 }
@@ -47,3 +53,7 @@ button:disabled {
 ::-webkit-scrollbar-thumb {
   background: theme("colors.lightBorder");
 }
+
+  input::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+  }

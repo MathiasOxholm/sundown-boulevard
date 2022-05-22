@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
   const [cartFood, setFoodCart] = useState([]);
   const [cartDrinks, setDrinksCart] = useState([]);
   const [date, setDate] = useState("");
-  const [time, setTime] = useState("");
+  const [time, setTime] = useState("16:00");
   const [email, setEmail] = useState("");
   const [peopleAmount, setPeopleAmount] = useState(1);
   const [preFilled, setPreFilled] = useState(false);
@@ -85,7 +85,7 @@ function MyApp({ Component, pageProps }) {
     setFoodCart([]);
     setDrinksCart([]);
     setDate("");
-    setTime("");
+    setTime("16:00");
     setEmail("");
     setPeopleAmount(1);
     setPreFilled(false);
