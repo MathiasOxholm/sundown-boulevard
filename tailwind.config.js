@@ -14,6 +14,7 @@ module.exports = {
       white: "#FFFFFF",
       dark: "#1C1C1C",
       medium: "#A39572",
+      green: "#21B211",
     },
     container: {
       padding: {

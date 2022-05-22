@@ -62,30 +62,12 @@ function MyApp({ Component, pageProps }) {
 
   // Set date function
   const handleDate = (e) => {
-    let date = new Date(e.target.value);
-    let weekday = date.getDay();
-
-    // Disable weekends
-    if (weekday === 6 || weekday === 0) {
-      alert("Sorry we are closed on weekends!");
-      setDate("");
-    } else {
-      setDate(e.target.value);
-    }
+    setDate(e.target.value);
   };
 
   // Set time function
   const handleTime = (e) => {
-    let value = e.target.value.split(":");
-    let valueString = value.join("");
-
-    // Open between 16.00 and 23.00
-    if (valueString > 1600 && valueString < 2300) {
-      setTime(e.target.value);
-    } else {
-      alert("We are only open between 16.00 and 23.00");
-      setTime("");
-    }
+    setTime(e.target.value);
   };
 
   // Set email function
@@ -95,14 +77,7 @@ function MyApp({ Component, pageProps }) {
 
   // Set amount of people function
   const handlePeople = (e) => {
-    let value = e.target.value;
-
-    if (value > 10) {
-      alert("Maximum 10 people");
-      setPeopleAmount(10);
-    } else {
-      setPeopleAmount(value);
-    }
+    setPeopleAmount(e.target.value);
   };
 
   // Reset flow data function

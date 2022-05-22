@@ -35,7 +35,7 @@ const Product = () => {
 
   return (
     <motion.div
-      className="flex flex-col w-full rounded-2xl overflow-hidden bg-white"
+      className="flex flex-col w-full rounded-2xl overflow-hidden bg-white border-lightBorder border"
       animate={{ y: 0, opacity: 1 }}
       initial={{ y: 20, opacity: 0 }}
     >
