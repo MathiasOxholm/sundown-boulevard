@@ -15,7 +15,6 @@ const Product = () => {
     const data = await res.json();
     setProduct(data.meals[0]);
     setLoading(false);
-    console.log(data.meals[0]);
   };
 
   // Get product on load

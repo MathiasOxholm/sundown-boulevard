@@ -34,7 +34,7 @@ const OrderForm = () => {
             Choose date <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5"
+            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5 cursor-pointer"
             type="date"
             id="date"
             min={minDate}
@@ -51,11 +51,9 @@ const OrderForm = () => {
             Choose time <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5"
+            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5 cursor-pointer"
             type="time"
             id="time"
-            min="09:00"
-            max="18:00"
             required
             value={time}
             onChange={handleTime}
@@ -92,6 +90,7 @@ const OrderForm = () => {
             required
             value={peopleAmount}
             min={1}
+            max={10}
             onChange={handlePeople}
           />
         </div>
