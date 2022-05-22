@@ -12,20 +12,23 @@ const Order = () => {
   const [disabled, setDisabled] = useState(true);
   const [btnText, setBtnText] = useState("Complete order");
 
+  // Form input validation
   useEffect(() => {
     date && time && email && peopleAmount
       ? setDisabled(false)
       : setDisabled(true);
   }, [date, time, email, peopleAmount]);
 
-    useEffect(() => {
-      cartDrinks.length === 0 && router.push("/drinks");
-      cartFood.length === 0 && router.push("/dish");
-    }, [cartDrinks, cartFood, router]);
+  // Redirect if cart is empty
+  useEffect(() => {
+    cartDrinks.length === 0 && router.push("/drinks");
+    cartFood.length === 0 && router.push("/dish");
+  }, [cartDrinks, cartFood, router]);
 
-    useEffect(() => {
-      preFilled && setBtnText("Update order");
-    }, [preFilled]);
+  // If is pre-filled data
+  useEffect(() => {
+    preFilled && setBtnText("Update order");
+  }, [preFilled]);
 
   return (
     <Layout title="Order" heading="Order details" back={"/drinks"}>

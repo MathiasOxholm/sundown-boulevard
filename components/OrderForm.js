@@ -18,6 +18,8 @@ const OrderForm = () => {
   const month = today.getMonth() + 1;
   const year = today.getFullYear();
   const minDate = year + "-" + "0" + month + "-" + day;
+  const inputClasses =
+    "border border-medium text-dark text-lg rounded-full w-full py-4 px-6 cursor-pointer hover:border-primary transition";
 
   return (
     <motion.div
@@ -34,7 +36,7 @@ const OrderForm = () => {
             Choose date <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5 cursor-pointer"
+            className={inputClasses}
             type="date"
             id="date"
             min={minDate}
@@ -51,7 +53,7 @@ const OrderForm = () => {
             Choose time <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5 cursor-pointer"
+            className={inputClasses}
             type="time"
             id="time"
             required
@@ -67,7 +69,7 @@ const OrderForm = () => {
             Email <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5"
+            className={inputClasses}
             type="email"
             id="email"
             value={email}
@@ -84,7 +86,7 @@ const OrderForm = () => {
             Amount of people <span className="text-primary ml-1">*</span>
           </label>
           <input
-            className="border border-medium text-dark text-lg rounded-full w-full py-3 px-5"
+            className={inputClasses}
             type="number"
             id="amount"
             required

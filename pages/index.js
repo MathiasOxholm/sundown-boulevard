@@ -3,6 +3,7 @@ import GallerySlider from "../components/GallerySlider";
 import ContentBox from "../components/ContentBox";
 import FindOrder from "../components/FindOrder";
 import Layout from "../components/Layout";
+import OldReceipt from "../components/OldReceipt";
 
 export default function Home() {
   return (
@@ -20,6 +21,11 @@ export default function Home() {
         <div className="flex col-span-full xl:col-span-6">
           <ContentBox />
         </div>
+        {typeof window !== "undefined" && window.sessionStorage.getItem("email") && (
+          <div className="flex col-span-full">
+            <OldReceipt />
+          </div>
+        )}
       </div>
     </Layout>
   );

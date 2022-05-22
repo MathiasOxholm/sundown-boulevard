@@ -8,6 +8,7 @@ import "swiper/css/lazy";
 import "swiper/css/effect-creative";
 import { motion } from "framer-motion";
 
+// Playdough backend
 const swipes = [
   { id: 1, heading: "Sandwiches and stuff", img: "/images/sandwich.jpg" },
   { id: 2, heading: "Cakes and pies", img: "/images/cake.jpg" },

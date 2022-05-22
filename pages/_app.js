@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { AppContext } from "../context";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const [cartFood, setFoodCart] = useState([]);
   const [cartDrinks, setDrinksCart] = useState([]);
-  const [date, setDate] = useState();
-  const [time, setTime] = useState();
-  const [email, setEmail] = useState();
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [email, setEmail] = useState("");
   const [peopleAmount, setPeopleAmount] = useState(1);
   const [preFilled, setPreFilled] = useState(false);
 
@@ -104,6 +105,17 @@ function MyApp({ Component, pageProps }) {
     }
   };
 
+  // Reset flow data function
+  const handleResetFlow = () => {
+    setFoodCart([]);
+    setDrinksCart([]);
+    setDate("");
+    setTime("");
+    setEmail("");
+    setPeopleAmount(1);
+    setPreFilled(false);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -126,10 +138,12 @@ function MyApp({ Component, pageProps }) {
         setDrinksCart,
         handlePreFilled,
         preFilled,
+        handleResetFlow,
       }}
     >
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </AppContext.Provider>
   );
 }

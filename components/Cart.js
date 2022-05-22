@@ -10,8 +10,8 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
   return (
     <motion.div
       id="Cart"
-      className={`flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit border border-lightBorder ${
-        sticky ? "sticky top-8" : "h-full"
+      className={`flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 border border-lightBorder ${
+        sticky ? "sticky top-8 h-fit" : "h-full"
       } `}
     >
       <div>
@@ -32,7 +32,7 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
             </ul>
           </div>
         )}
-
+              
         {cartDrinks.length > 0 && (
           <div>
             <h3 className="text-lg font-semibold mb-1">Drinks</h3>

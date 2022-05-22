@@ -10,6 +10,7 @@ const Drinks = () => {
   const { cartDrinks, cartFood } = useContext(AppContext);
   const [disabled, setDisabled] = useState(true);
 
+  // Redirect if no food is selected + validation
   useEffect(() => {
     cartDrinks.length > 0 ? setDisabled(false) : setDisabled(true);
     cartFood.length === 0 && router.push("/dish");

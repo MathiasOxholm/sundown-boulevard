@@ -8,6 +8,7 @@ const Dish = () => {
   const { cartFood } = useContext(AppContext);
   const [disabled, setDisabled] = useState(true);
 
+  // Require at least 1 product validation
   useEffect(() => {
     cartFood.length > 0 ? setDisabled(false) : setDisabled(true);
   }, [cartFood]);
