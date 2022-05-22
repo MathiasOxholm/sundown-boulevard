@@ -94,7 +94,14 @@ function MyApp({ Component, pageProps }) {
 
   // Set amount of people function
   const handlePeople = (e) => {
-    setPeopleAmount(e.target.value);
+    let value = e.target.value;
+
+    if (value > 10) {
+      alert("Maximum 10 people");
+      setPeopleAmount(10);
+    } else {
+      setPeopleAmount(value);
+    }
   };
 
   return (
