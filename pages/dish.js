@@ -15,10 +15,10 @@ const Dish = () => {
   return (
     <Layout title="Meals" heading="Choose a meal 🍲" back={"/"}>
       <div className="grid grid-cols-12 gap-8">
-        <div className="flex col-span-8">
+        <div className="flex col-span-full xl:col-span-8">
           <Product />
         </div>
-        <div className="flex col-span-4">
+        <div className="flex col-span-full xl:col-span-4">
           <Cart
             link="/drinks"
             btnText="Choose drinks"

@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/lazy";
 import "swiper/css/effect-creative";
+import { motion } from "framer-motion";
 
 const swipes = [
   { id: 1, heading: "Sandwiches and stuff", img: "/images/sandwich.jpg" },
@@ -15,7 +16,11 @@ const swipes = [
 
 const GallerySlider = () => {
   return (
-    <div className="flex w-full relative aspect-video bg-white overflow-hidden rounded-2xl transition-all">
+    <motion.div
+      className="flex w-full relative aspect-square xl:aspect-video bg-white overflow-hidden rounded-2xl transition-all"
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: 20, opacity: 0 }}
+    >
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
@@ -57,7 +62,7 @@ const GallerySlider = () => {
           );
         })}
       </Swiper>
-    </div>
+    </motion.div>
   );
 };
 

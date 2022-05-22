@@ -18,7 +18,7 @@ const Receipt = () => {
       </Layout>
       <canvas
         id="confetti"
-        className="absolute inset-0 z-0 pointer-events-none"
+        className="absolute inset-0 z-0 pointer-events-none h-full w-full"
       ></canvas>
     </>
   );

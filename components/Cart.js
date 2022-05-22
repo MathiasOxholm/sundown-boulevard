@@ -2,12 +2,13 @@ import { useContext } from "react";
 import { AppContext } from "../context";
 import Link from "next/link";
 import CartItem from "./CartItem";
+import { motion } from "framer-motion";
 
 const Cart = ({ link, btnText, sticky, disabled, home }) => {
   const { cartFood, cartDrinks } = useContext(AppContext);
 
   return (
-    <div
+    <motion.div
       id="Cart"
       className={`flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit border border-lightBorder ${
         sticky ? "sticky top-8" : "h-full"
@@ -51,7 +52,7 @@ const Cart = ({ link, btnText, sticky, disabled, home }) => {
           {btnText}
         </button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 

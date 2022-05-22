@@ -19,7 +19,7 @@ const Header = () => {
           />
         </a>
       </Link>
-      <nav className="flex flex-col justify-center">
+      <nav className="hidden xl:flex flex-col justify-center">
         <ul className="flex flex-row gap-6">
           {menuItems.map((menuItem) => {
             return (

@@ -18,10 +18,10 @@ const Drinks = () => {
   return (
     <Layout title="Drinks" heading="Choose a drink 🍺" back={"/dish"}>
       <div className="grid grid-cols-12 gap-8">
-        <div className="flex col-span-8 relative">
+        <div className="flex col-span-full xl:col-span-8 relative">
           <DrinkList />
         </div>
-        <div className="flex col-span-4">
+        <div className="flex col-span-full xl:col-span-4">
           <Cart
             link="/order"
             btnText="Order details"

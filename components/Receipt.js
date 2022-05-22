@@ -9,7 +9,7 @@ const Receipt = () => {
   const cartTotal = [...cartFood, ...cartDrinks];
 
   return (
-    <div className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 gap-4">
+    <div className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 gap-4 border border-lightBorder">
       <div>
         <h2 className="text-xl font-semibold mb-2">{"You've ordered"}</h2>
         <ul>

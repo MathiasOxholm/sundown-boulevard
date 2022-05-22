@@ -30,10 +30,10 @@ const Order = () => {
   return (
     <Layout title="Order" heading="Order details" back={"/drinks"}>
       <div className="grid grid-cols-12 gap-8">
-        <div className="flex col-span-8">
+        <div className="flex col-span-full xl:col-span-8">
           <OrderForm />
         </div>
-        <div className="flex col-span-4">
+        <div className="flex col-span-full xl:col-span-4">
           <Cart link="/receipt" btnText={btnText} disabled={disabled} />
         </div>
       </div>

@@ -10,7 +10,7 @@ const Layout = ({ title, children, heading, back }) => {
       <main id="main">
         <div className="container mx-auto flex flex-col">
           {heading && (
-            <div className="flex flex-row justify-between items-center w-full bg-white overflow-hidden rounded-2xl py-12 px-10 mb-8 border border-lightBorder">
+            <div className="flex flex-col gap-8 xl:flex-row justify-between items-center w-full bg-white overflow-hidden rounded-2xl py-12 px-10 mb-8 border border-lightBorder">
               <h1 className="text-5xl font-semibold">{heading}</h1>
               {back && (
                 <Link href={back}>

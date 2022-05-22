@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../context";
+import { motion } from "framer-motion";
 
 const OrderForm = () => {
   const {
@@ -19,7 +20,11 @@ const OrderForm = () => {
   const minDate = year + "-" + "0" + month + "-" + day;
 
   return (
-    <div className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit sticky top-8 border border-lightBorder">
+    <motion.div
+      className="flex flex-col justify-between w-full bg-white overflow-hidden rounded-2xl py-12 px-10 h-fit sticky top-8 border border-lightBorder"
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: 20, opacity: 0 }}
+    >
       <div className="flex flex-col gap-6">
         <div>
           <label
@@ -91,7 +96,7 @@ const OrderForm = () => {
           />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

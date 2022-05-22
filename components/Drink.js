@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import { AppContext } from "../context";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Drink = ({ title, img }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -12,8 +13,8 @@ const Drink = ({ title, img }) => {
   }, [cartDrinks, title]);
 
   return (
-    <div
-      className={`flex flex-col aspect-square bg-white border  justify-center items-center rounded-xl p-8 cursor-pointer outline-primary hover:shadow-lg hover:-translate-y-1 hover:border-secondary transition-all duration-500 ${
+    <motion.div
+      className={`flex flex-col aspect-square bg-white border  justify-center items-center rounded-xl p-8 cursor-pointer outline-primary hover:shadow-lg hover:-translate-y-1 hover:border-secondary transition ${
         isSelected
           ? "border bg-lightBorder border-lightBorder"
           : "border-lightBorder"
@@ -21,6 +22,7 @@ const Drink = ({ title, img }) => {
       onClick={() => {
         handleAddToCart(title, "drinks");
       }}
+
     >
       <figure className="flex flex-1 aspect-square relative">
         <Image
@@ -31,7 +33,7 @@ const Drink = ({ title, img }) => {
         />
       </figure>
       <h3 className="mt-4 text-center">{title}</h3>
-    </div>
+    </motion.div>
   );
 };
 

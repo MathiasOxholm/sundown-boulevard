@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useRouter } from "next/router";
 import { AppContext } from "../context";
+import { motion } from "framer-motion";
 
 // Playdough backend
 const oldOrders = [
@@ -23,7 +24,8 @@ const oldOrders = [
 
 const FindOrder = () => {
   const router = useRouter();
-  const { setDrinksCart, setFoodCart, setEmail, handlePreFilled } = useContext(AppContext);
+  const { setDrinksCart, setFoodCart, setEmail, handlePreFilled } =
+    useContext(AppContext);
   const [inputValue, setInputValue] = useState("");
 
   // Handle input changes
@@ -48,7 +50,11 @@ const FindOrder = () => {
   };
 
   return (
-    <div className="flex flex-col justify-between w-full relative aspect-video bg-white overflow-hidden rounded-2xl py-12 px-10 border border-lightBorder">
+    <motion.div
+      className="flex flex-col justify-between w-full relative aspect-square xl:aspect-video bg-white overflow-hidden rounded-2xl py-12 px-10 border border-lightBorder"
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: 20, opacity: 0 }}
+    >
       <div>
         <h2 className="text-3xl font-semibold mb-2">Find your order</h2>
         <p>Enter your email address and continue your old order</p>
@@ -68,7 +74,7 @@ const FindOrder = () => {
           Search
         </button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

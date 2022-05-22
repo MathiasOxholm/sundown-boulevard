@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../context";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const Product = () => {
   const { foodAPI, handleAddToCart, cartFood } = useContext(AppContext);
@@ -30,15 +31,15 @@ const Product = () => {
   }, [cartFood, product, loading]);
 
   if (loading) {
-    return (
-      <p className="h-full w-full flex flex-col justify-center items-center text-xl">
-        Loading
-      </p>
-    );
+    return;
   }
 
   return (
-    <div className="flex flex-col w-full rounded-2xl overflow-hidden bg-white">
+    <motion.div
+      className="flex flex-col w-full rounded-2xl overflow-hidden bg-white"
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: 20, opacity: 0 }}
+    >
       <figure className="aspect-video flex w-full flex-1 relative">
         <Image
           src={product.strMealThumb}
@@ -48,7 +49,7 @@ const Product = () => {
           priority
         />
       </figure>
-      <div className="flex flex-col w-full relative bg-white py-12 px-10 gap-8">
+      <div className="flex flex-col w-full relative bg-white py-8 xl:py-12 px-8 gap-4 xl:px-10 xl:gap-8">
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-start gap-4">
             <h2 className="text-3xl font-semibold">{product.strMeal}</h2>
@@ -65,7 +66,7 @@ const Product = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-row gap-4 justify-end">
+        <div className="flex flex-col xl:flex-row gap-4 justify-end">
           <button
             className="text-white bg-secondary hover:bg-secondaryDark focus:outline-none font-bold rounded-full text-sm uppercase px-8 py-4 text-center transition"
             onClick={getProduct}
@@ -80,7 +81,7 @@ const Product = () => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

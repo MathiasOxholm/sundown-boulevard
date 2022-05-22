@@ -1,6 +1,7 @@
 import Drink from "./Drink";
 import { useEffect, useState, useContext } from "react";
 import { AppContext } from "../context";
+import { motion } from "framer-motion";
 
 const DrinkList = () => {
   const { beerAPI } = useContext(AppContext);
@@ -21,21 +22,21 @@ const DrinkList = () => {
   }, []);
 
   if (loading) {
-    return (
-      <p className="h-full w-full flex flex-col justify-center items-center text-xl">
-        Loading
-      </p>
-    );
+    return;
   }
 
   return (
-    <ul className="grid grid-cols-3 gap-4">
+    <motion.ul
+      className="grid grid-cols-2 xl:grid-cols-3 gap-4"
+      animate={{ y: 0, opacity: 1 }}
+      initial={{ y: 20, opacity: 0 }}
+    >
       {drinks.map((drink) => {
         return (
           <Drink key={drink.id} title={drink.name} img={drink.image_url} />
         );
       })}
-    </ul>
+    </motion.ul>
   );
 };
 

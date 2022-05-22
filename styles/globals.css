@@ -10,7 +10,7 @@ button {
 body {
   background-color: theme("colors.light");
   padding-bottom: theme("spacing.8");
-  min-height: 100vh;
+  min-height: 110vh;
 }
 
 ::selection {
@@ -40,5 +40,5 @@ button:disabled {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: theme("colors.medium");
+  background: theme("colors.lightBorder");
 }
